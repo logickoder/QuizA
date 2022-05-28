@@ -1,10 +1,14 @@
 package dev.logickoder.quiza.ui.theme
 
+import androidx.annotation.DimenRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.dimensionResource
+
+typealias Theme = MaterialTheme
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -16,16 +20,10 @@ private val LightColorPalette = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
     secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
+
+@Composable
+fun dimens(@DimenRes id: Int) = dimensionResource(id = id)
 
 @Composable
 fun QuizATheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
